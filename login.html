@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./login.css" />
+    <title>Login</title>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <form
+      action="./login.php"
+      target="_self"
+      method="post"
+      onsubmit="return validateLogin()">
+      <label for="email"> Email:</label>
+      <input type="email" id="email" name="email" required />
+      <br />
+      <label for="passwrd">Password:</label>
+      <div class="password-container">
+        <input type="password" id="password" name="password" />
+        <span
+          class="toggle-password"
+          id="togglePassword"
+          data-text-show="Show"
+          data-text-hide="Hide"
+          onclick="togglePasswordVisibility('password', 'togglePassword')"
+          >Show</span
+        >
+      </div>
+      <br />
+      <button type="submit">Login</button>
+      <br />
+      <p>New here? <a href="./Registration.html">Sign up</a></p>
+    </form>
+  </body>
+</html>
