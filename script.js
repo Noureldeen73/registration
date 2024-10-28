@@ -1,3 +1,5 @@
+let uniqueEmail = false;
+
 function validateLogin() {
   let emailField = document.getElementById("email");
   let passwordField = document.getElementById("password");
@@ -18,6 +20,29 @@ function validateLogin() {
     return false;
   }
   return true;
+}
+function checkEmail() {
+  const emailField = document.getElementById("email");
+  const emailStatus = document.getElementById("emailstatus");
+  const xhr = new XMLHttpRequest();
+
+  xhr.open("POST", "checkEmail.php", true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      if (xhr.responseText == "available") {
+        emailStatus.textContent = "Email is available";
+        emailStatus.style.color = "green";
+        uniqueEmail = true;
+      } else {
+        emailStatus.textContent = "Email is not available";
+        emailStatus.style.color = "red";
+        uniqueEmail = false;
+      }
+    }
+  };
+  xhr.send("email=" + encodeURIComponent(emailField.value));
 }
 function validateSignup() {
   let usernameField = document.getElementById("user");
@@ -63,6 +88,11 @@ function validateSignup() {
   if (passwordField.value != confirmPasswordField.value) {
     alert("Password and Confirm Password do not match");
     confirmPasswordField.focus();
+    return false;
+  }
+  if (!uniqueEmail) {
+    alert("Email is not available");
+    emailField.focus();
     return false;
   }
   return true;
