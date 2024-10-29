@@ -26,7 +26,7 @@ function checkEmail() {
   const emailStatus = document.getElementById("emailstatus");
   const xhr = new XMLHttpRequest();
 
-  xhr.open("POST", "checkEmail.php", true);
+  xhr.open("POST", "/backend/checkEmail.php", true);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
   xhr.onreadystatechange = function () {
