@@ -3,8 +3,18 @@
 
 <head>
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="./loginstyle.css">
 </head>
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+    }
+</style>
 
 <body>
     <?php
@@ -32,7 +42,7 @@
     } else {
         echo "<script>
     alert('Invalid email or password. Please try again.');
-    window.location.href = 'login.html'; 
+    window.location.href = '../login.html'; 
   </script>";
     }
     $conn->close();

@@ -24,6 +24,17 @@ function validateLogin() {
 function checkEmail() {
   const emailField = document.getElementById("email");
   const emailStatus = document.getElementById("emailstatus");
+  if (emailField.value == "") {
+    emailStatus.textContent = "Email is required";
+    emailStatus.style.color = "red";
+    return;
+  }
+  $email_pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!$email_pattern.test(emailField.value)) {
+    emailStatus.textContent = "Email is not valid";
+    emailStatus.style.color = "red";
+    return;
+  }
   const xhr = new XMLHttpRequest();
 
   xhr.open("POST", "/backend/checkEmail.php", true);

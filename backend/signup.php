@@ -5,6 +5,17 @@
     <title>Sign Up</title>
     <link rel="stylesheet" type="text/css" href="./signupstyle.css">
 </head>
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+    }
+</style>
 
 <body>
 
